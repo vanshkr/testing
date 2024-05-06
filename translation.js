@@ -3,6 +3,7 @@ const MIVS = (function () {
   let translations;
 
   function initTranslation(options) {
+    console.log('translation.js loaded');
     apiKey = options.apiKey;
     fetchTranslations()
       .then((data) => {
@@ -165,3 +166,4 @@ const MIVS = (function () {
   };
 })();
 window.MIVS = MIVS;
+console.log(window.MIVS);
