@@ -35,7 +35,7 @@ const MIVS = (function () {
         preferences: {
           autoSave: true,
           defaultFont: "Arial"
-        }
+        },
          languages: ["en", "fr", "es", "de", "zh", "ar"]
       };
       resolve(settings);
