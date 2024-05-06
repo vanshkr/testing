@@ -164,3 +164,4 @@ const MIVS = (function () {
     fetchTranslations: fetchTranslations,
   };
 })();
+window.MIVS = MIVS;
