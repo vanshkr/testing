@@ -17,13 +17,40 @@ const MIVS = (function () {
       .catch((error) => console.error("Error fetching translations:", error));
   }
 
+  // function fetchTranslations() {
+  //   return fetch("/translations.json")
+  //     .then((response) => response.json())
+  //     .catch((error) => {
+  //       console.error("Error fetching translations:", error);
+  //       throw error;
+  //     });
+  // }
   function fetchTranslations() {
-    return fetch("/translations.json")
-      .then((response) => response.json())
-      .catch((error) => {
-        console.error("Error fetching translations:", error);
-        throw error;
-      });
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const settings = {
+        language: "en",
+        theme: "dark",
+        notifications: true,
+        preferences: {
+          autoSave: true,
+          defaultFont: "Arial"
+        }
+         languages: ["en", "fr", "es", "de", "zh", "ar"]
+      };
+      resolve(settings);
+    }, 2000);
+  });
+}
+
+  function updateTranslations(data, options) {
+    const updatedData = { ...data };
+    for (const key in options) {
+      if (key !== 'apiKey' && updatedData.hasOwnProperty(key)) {
+        updatedData[key] = options[key];
+      }
+    }
+    return updatedData;
   }
 
   async function extractAndTranslateTextNodes(targetLang) {
