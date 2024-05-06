@@ -12,7 +12,6 @@ const MIVS = (function () {
           translations.languages
         );
         document.body.appendChild(languageSwitcher);
-        extractAndTranslateTextNodes(translations.defaultLanguage);
       })
       .catch((error) => console.error("Error fetching translations:", error));
   }
@@ -81,6 +80,7 @@ const MIVS = (function () {
       }
       currentNode = walker.nextNode();
     }
+    console.log(textNodeData)
     const translatedTextNodes = await translateTextNodes(
       textNodeData,
       targetLang
